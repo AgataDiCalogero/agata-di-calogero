@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio – Agata Di Calogero</title>
+
+    <!-- Meta SEO & social -->
+    <meta
+      name="description"
+      content="Portfolio - Agata Di Calogero, Senior Business Analyst & Front End Developer."
+    />
+    <meta property="og:title" content="Portfolio – Agata Di Calogero" />
+    <meta
+      property="og:description"
+      content="Unisco analisi strategica e sviluppo front-end per aiutare aziende e team digitali a crescere. Scopri chi sono e come posso supportare il tuo progetto."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tua-url.it" />
+    <meta property="og:image" content="img/preview.jpg" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicons/favicon.ico" type="image/x-icon" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="img/favicons/favicon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="img/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="img/favicons/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="img/favicons/site.webmanifest" />
+    <meta name="theme-color" content="#b7a98b" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+
+  <body>
+    <header class="l-header">
+      <input type="checkbox" id="menu-toggle" class="u-hidden" />
+      <label for="menu-toggle" class="c-burger" aria-label="Apri menu">
+        <span></span><span></span><span></span>
+      </label>
+
+      <nav class="c-nav container">
+        <ul
+          class="c-nav__list d-flex flex-wrap justify-content-center justify-content-md-start gap-3 p-0 m-0 list-unstyled"
+        >
+          <li><a href="index.html" class="c-nav__link">Home</a></li>
+          <li>
+            <a href="portfolio.html" class="c-nav__link is-active">Portfolio</a>
+          </li>
+          <li><a href="cv.html" class="c-nav__link">CV</a></li>
+          <li><a href="contatti.html" class="c-nav__link">Contatti</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="l-main container py-5">
+      <section class="portfolio">
+        <h1 class="section__title mb-4">Portfolio</h1>
+        <div class="portfolio__grid">
+          <!-- CARD 1 -->
+          <article class="portfolio__card">
+            <img
+              src="img/portfolio/meditactive-thumb.jpg"
+              alt="Anteprima MeditActive"
+              class="img-fluid rounded mb-3"
+            />
+            <div class="portfolio__content">
+              <div class="portfolio__title-row">
+                <h2 class="portfolio__title">MeditActive</h2>
+                <span class="portfolio__status portfolio__status--complete">
+                  Completo
+                </span>
+              </div>
+              <div class="portfolio__subtitle">Mini sito yoga responsive</div>
+              <p class="portfolio__desc">
+                Sito front end per un brand fittizio dedicato alla meditazione
+                quotidiana.<br />
+                Palette rilassante, tipografia elegante e layout mobile-first.
+              </p>
+            </div>
+            <div class="mt-3">
+              <a
+                href="https://github.com/AgataDiCalogero/medit-active"
+                target="_blank"
+                class="btn btn-sm btn-outline-secondary me-2"
+                >GitHub</a
+              >
+              <a
+                href="https://agatadicalogero.github.io/medit-active/"
+                target="_blank"
+                class="btn btn-sm btn-primary"
+                >Live Site</a
+              >
+            </div>
+          </article>
+
+          <!-- CARD 2 -->
+          <article class="portfolio__card">
+            <img
+              src="img/portfolio/ethos-couture.png"
+              alt="Anteprima Ethos Couture"
+              class="img-fluid rounded mb-3"
+            />
+            <div class="portfolio__content">
+              <div class="portfolio__title-row">
+                <h2 class="portfolio__title">Ethos Couture</h2>
+                <span class="portfolio__status portfolio__status--complete">
+                  Completo
+                </span>
+              </div>
+              <div class="portfolio__subtitle">
+                Data Analysis & Sustainability
+              </div>
+              <p class="portfolio__desc">
+                Presentazione data-driven per una fashion company.<br />
+                Analisi efficienza, sostenibilità e business insight tramite
+                Excel e Google Presentazioni.
+              </p>
+            </div>
+            <div class="mt-3">
+              <a
+                href="https://docs.google.com/presentation/d/1MUYdMCrAoUYVHwmqRpLdzszXZmh8f9MKaoCcDgE_qMM/edit?slide=id.p#slide=id.p"
+                target="_blank"
+                class="btn btn-sm btn-outline-secondary me-2"
+                >Presentazione</a
+              >
+              <a
+                href="files/Progetto_Intro_Data_Analysis.pdf"
+                target="_blank"
+                class="btn btn-sm btn-primary"
+                >Scarica PDF</a
+              >
+            </div>
+          </article>
+
+          <!-- CARD 3 -->
+          <article class="portfolio__card">
+            <img
+              src="img/portfolio/habit-tracker-thumb.png"
+              alt="Anteprima Habit Tracker"
+              class="img-fluid rounded mb-3"
+            />
+            <div class="portfolio__content">
+              <div class="portfolio__title-row">
+                <h2 class="portfolio__title">Habit Tracker</h2>
+                <span class="portfolio__status portfolio__status--progress">
+                  In corso
+                </span>
+              </div>
+              <div class="portfolio__subtitle">
+                Automazioni in Google Apps Script
+              </div>
+              <p class="portfolio__desc">
+                Tool personale per monitorare abitudini e performance in Google
+                Sheets.<br />
+                Reminder, automazioni e visualizzazione progressi.
+              </p>
+            </div>
+            <div class="mt-3">
+              <label
+                for="modal-wip"
+                class="btn btn-sm btn-outline-secondary me-2"
+                style="cursor: pointer"
+              >
+                Anteprima
+              </label>
+              <button
+                class="btn btn-sm btn-primary"
+                disabled
+                title="Non disponibile al momento – progetto in lavorazione"
+                aria-label="Non disponibile al momento"
+                tabindex="0"
+                type="button"
+              >
+                Scarica PDF
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+      <!-- Modale unico fuori dalle card -->
+      <input type="checkbox" id="modal-wip" class="modal-toggle" />
+      <label for="modal-wip" class="portfolio__modal-backdrop"></label>
+      <div class="portfolio__modal" aria-modal="true" role="dialog">
+        <div class="portfolio__modal-content">
+          <h3 class="portfolio__modal-title">Lavori in corso</h3>
+          <div class="portfolio__modal-message">
+            Questo progetto sarà presto disponibile.<br />
+            <span class="portfolio__modal-evidence">
+              Sto lavorando a nuovi progetti che arricchiranno il mio portfolio!
+            </span>
+          </div>
+          <ul class="portfolio__modal-list">
+            <li>Dashboard personalizzate e automazioni avanzate</li>
+            <li>Nuovi tool per la produttività e il monitoraggio</li>
+            <li>Integrazione API e UX su misura</li>
+          </ul>
+          <div class="portfolio__modal-actions">
+            <label for="modal-wip" class="btn btn-primary portfolio__modal-btn"
+              >Chiudi</label
+            >
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="l-footer text-center py-4">
+      <p class="footer__text mb-0">
+        © Agata Di Calogero — Tutti i diritti riservati
+      </p>
+    </footer>
+  </body>
+</html>

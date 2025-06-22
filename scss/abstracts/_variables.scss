@@ -1,0 +1,31 @@
+@use 'sass:map';
+
+// FONT
+$font-title: 'EB Garamond', serif;
+$font-text: 'Space Grotesk', sans-serif;
+
+// COLORI BASE
+$color-background: #f7f4ef;
+$color-text: #101010;
+$color-accent: #b7a98b;
+$color-line: #c2b38f;
+$color-link: #666;
+
+// BADGE STATUS
+$color-badge-complete-bg: #8ea78e;        
+$color-badge-complete-border: #6f8c70;    
+$color-badge-complete-text: #fff;         
+
+$color-badge-progress-bg: #ffe6a2;        
+$color-badge-progress-border: #e9d072;    
+$color-badge-progress-text: #937600;      
+
+// BOTTONI PALETTE
+$color-btn-primary-bg: $color-accent;
+$color-btn-primary-hover: #9d8d6b;         
+$color-btn-primary-text: #fff;
+
+$color-btn-outline-text: #9d8d6b;
+$color-btn-outline-border: #9d8d6b;
+$color-btn-outline-hover-bg: #9d8d6b;
+$color-btn-outline-hover-text: #fff;

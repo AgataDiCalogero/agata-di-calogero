@@ -1,0 +1,353 @@
+@use "../abstracts/variables" as *;
+
+.container {
+  max-width: 1400px;
+}
+
+.portfolio {
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @media (min-width: 1100px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__card {
+    background-color: $color-background;
+    border: 1px solid $color-line;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(60, 40, 5, 0.05);
+    transition: box-shadow 0.3s ease, transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+
+    &:hover,
+    &:focus-within {
+      box-shadow: 0 6px 24px rgba(60, 40, 5, 0.12);
+      transform: translateY(-2px) scale(1.012);
+    }
+
+    img {
+      height: 180px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(60, 40, 5, 0.04);
+    }
+  }
+
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+  }
+
+  &__title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.12rem;
+  }
+
+  &__title {
+    font-size: 1.6rem;
+    font-family: $font-title;
+    color: $color-text;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  &__status {
+    font-weight: 600;
+    font-family: $font-text;
+    padding: 0.15rem 0.85rem;
+    border-radius: 999px;
+    font-size: 1rem;
+
+    &--complete {
+      background: $color-badge-complete-bg;
+      color: $color-badge-complete-text;
+      border: 1.5px solid $color-badge-complete-border;
+    }
+    
+    &--progress {
+      background: $color-badge-progress-bg;
+      color: $color-badge-progress-text;
+      border: 1.5px solid $color-badge-progress-border;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.03rem;
+    font-family: $font-text;
+    font-weight: 500;
+    margin-bottom: 0.32rem;
+    color: $color-accent;
+    opacity: 0.8;
+  }
+
+  &__desc {
+    margin-bottom: 0.8rem;
+    color: $color-text;
+    opacity: 0.87;
+    font-size: 1rem;
+    font-family: $font-text;
+    line-height: 1.45;
+  }
+
+  &__modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1999;
+    background: rgba(48, 40, 12, 0.22);
+    cursor: pointer;
+  }
+
+  &__modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    animation: modalFadeIn 0.28s ease;
+  }
+
+  &__modal-content {
+    background: lighten($color-line, 32%);
+    border-radius: 24px;
+    box-shadow: 0 8px 38px rgba(160, 140, 90, 0.15);
+    max-width: 440px;
+    width: 97vw;
+    padding: 2.5rem 2.1rem 2.2rem 2.1rem;
+    text-align: center;
+    font-family: $font-text;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.4rem;
+  }
+
+  &__modal-title {
+    font-family: $font-title;
+    font-size: 2.18rem;
+    color: $color-accent;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.2em;
+  }
+
+  &__modal-message {
+    font-size: 1.12rem;
+    color: $color-text;
+    opacity: 0.95;
+    margin-bottom: 0.4em;
+    line-height: 1.44;
+    font-family: $font-text;
+  }
+
+  &__modal-evidence {
+    color: $color-badge-complete-bg;
+    font-weight: 600;
+    display: block;
+    margin: 0.62em 0 0.4em 0;
+    font-size: 1.07em;
+    letter-spacing: 0.01em;
+  }
+
+  &__modal-list {
+    margin: 0.5em 0 1.1em 0;
+    padding: 0;
+    list-style: disc inside;
+    text-align: left;
+    font-size: 1.06rem;
+    color: $color-text;
+    opacity: 0.96;
+    line-height: 1.52;
+    font-family: $font-text;
+    width: 100%;
+    max-width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__modal-actions {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 0.2em;
+  }
+
+  &__modal-btn {
+    min-width: 120px;
+    padding: 0.6rem 1.7rem;
+    font-size: 1.11rem;
+    border-radius: 13px;
+    font-weight: 600;
+    margin: 0 auto;
+    box-shadow: 0 2px 10px rgba(160, 140, 90, 0.07);
+  }
+}
+
+.btn, .btn-sm {
+  border-radius: 8px;
+  font-family: $font-text;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  box-shadow: none !important;
+  border: none;
+  outline: none !important;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.18s, box-shadow 0.18s;
+
+  &:focus, &:active, &:hover {
+    box-shadow: none !important;
+    outline: none !important;
+    border: none !important;
+    text-decoration: none !important;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 2px;
+    box-shadow: none !important;
+  }
+
+  &.btn-primary {
+    background-color: $color-btn-primary-bg;
+    color: $color-btn-primary-text;
+    --bs-btn-bg: #{$color-btn-primary-bg};
+    --bs-btn-color: #{$color-btn-primary-text};
+
+    &:hover, &:focus {
+      background-color: $color-btn-primary-hover;
+      color: $color-btn-primary-text;
+      box-shadow: 0 3px 12px rgba(60, 40, 5, 0.06);
+    }
+
+    &:active {
+      background-color: darken($color-btn-primary-bg, 2%);
+    }
+
+    &:visited {
+      background-color: $color-btn-primary-bg;
+      color: $color-btn-primary-text;
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  &.btn-outline-secondary {
+    background: transparent;
+    color: $color-btn-outline-text;
+    border: 1.3px solid $color-btn-outline-border;
+
+    &:hover, &:focus {
+      background-color: $color-btn-outline-hover-bg;
+      color: $color-btn-outline-hover-text;
+      border: 1.3px solid $color-btn-outline-border;
+      box-shadow: 0 2px 10px rgba(60, 40, 5, 0.05);
+    }
+
+    &:active {
+      background-color: darken($color-btn-outline-hover-bg, 2%);
+      color: $color-btn-outline-hover-text;
+      border: 1.3px solid $color-btn-outline-border;
+    }
+  }
+
+  &[disabled], &:disabled {
+    background-color: lighten($color-btn-primary-bg, 21%);
+    color: $color-btn-primary-text;
+    opacity: 0.62;
+    pointer-events: none;
+    filter: grayscale(0.12) blur(0.1px);
+    position: relative;
+
+    &::after {
+      content: attr(aria-label);
+      visibility: hidden;
+      opacity: 0;
+      background: $color-background;
+      color: $color-text;
+      border-radius: 8px;
+      padding: 0.5em 1em;
+      font-size: 0.9em;
+      font-family: $font-text;
+      box-shadow: 0 4px 16px rgba(60, 40, 5, 0.1);
+      position: absolute;
+      z-index: 10;
+      left: 50%;
+      bottom: 120%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      transition: opacity 0.2s ease;
+    }
+
+    &:hover::after,
+    &:focus::after {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+.mt-3 {
+  margin-top: auto;
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.modal-toggle {
+  display: none;
+
+  &:checked ~ .portfolio__modal-backdrop { 
+    display: block; 
+  }
+
+  &:checked ~ .portfolio__modal { 
+    display: flex; 
+  }
+}
+
+@keyframes modalFadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1; 
+    transform: none; 
+  }
+}
+
+@media (max-width: 640px) {
+  .portfolio__modal-content {
+    max-width: 99vw;
+    padding: 1.3rem 0.5rem;
+    font-size: 1.01rem;
+    border-radius: 14px;
+  }
+
+  .portfolio__modal-title {
+    font-size: 1.32rem;
+  }
+}

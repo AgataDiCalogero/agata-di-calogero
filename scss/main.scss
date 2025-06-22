@@ -1,0 +1,24 @@
+@use 'abstracts/variables' as *;
+@use 'base/reset';
+@use 'components/button';
+@use 'layout/footer';
+@use 'layout/grid';
+@use 'layout/header';
+@use 'pages/contatti';
+@use 'pages/cv';
+@use 'pages/index';
+@use 'pages/portfolio';
+
+body {
+  font-family: $font-text;
+  color: $color-text;
+  background-color: $color-background;
+  line-height: 1.6;
+}
+
+h1, h2 {
+  font-family: $font-title;
+  font-weight: normal;
+  line-height: 1.2;
+}
+

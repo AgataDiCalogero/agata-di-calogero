@@ -1,0 +1,143 @@
+@use "../abstracts/variables" as *;
+
+.l-header {
+  position: sticky;
+  top: 0;
+  background-color: $color-background;
+  z-index: 9999;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid $color-line;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: 767px) {
+    padding: 0.8rem 1.5rem;
+  }
+
+  @media (max-width: 576px) {
+    padding: 0.6rem 1rem;
+  }
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.c-burger {
+  width: 24px;
+  height: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 10000;
+  position: relative;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+
+  span {
+    display: block;
+    height: 2px;
+    background: $color-text;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+    transform-origin: center;
+  }
+}
+
+.c-nav {
+  @media (max-width: 767px) {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: $color-background;
+    padding: 1.5rem;
+    border-top: 1px solid $color-line;
+    box-shadow: 0 4px 12px rgba($color-accent, 0.1);
+    z-index: 9998;
+  }
+
+  @media (min-width: 768px) {
+    display: block;
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    padding: 0;
+    margin: 0;
+
+    @media (max-width: 767px) {
+      flex-direction: column;
+      gap: 0;
+      align-items: flex-start;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $color-text;
+    font-weight: 500;
+    transition: color 0.2s ease;
+
+    @media (max-width: 767px) {
+      padding: 0.8rem 0;
+      display: block;
+      width: 100%;
+      border-bottom: 1px solid rgba($color-line, 0.5);
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    &:hover {
+      color: $color-accent;
+
+      @media (max-width: 767px) {
+        background-color: rgba($color-accent, 0.05);
+      }
+    }
+
+    &.is-active {
+      font-weight: 600;
+      color: $color-accent;
+
+      @media (max-width: 767px) {
+        background-color: rgba($color-accent, 0.08);
+      }
+    }
+  }
+}
+
+#menu-toggle:checked ~ .c-nav {
+  @media (max-width: 767px) {
+    display: block;
+  }
+}
+
+/* Animazione hamburger quando menu è aperto */
+#menu-toggle:checked ~ .c-burger {
+  span {
+    &:nth-of-type(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    &:nth-of-type(2) {
+      opacity: 0;
+      transform: scale(0);
+    }
+
+    &:nth-of-type(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
+}
+
+

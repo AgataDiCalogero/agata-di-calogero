@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contattami – Agata Di Calogero</title>
+
+    <!-- Meta SEO & social -->
+    <meta
+      name="description"
+      content="Contattami per collaborazioni e progetti digitali. Sviluppatrice Front End e Senior Business Analyst, lavoro 100% da remoto."
+    />
+    <meta property="og:title" content="Contattami – Agata Di Calogero" />
+    <meta
+      property="og:description"
+      content="Contattami per collaborazioni digitali, consulenze o progetti su misura. Lavoro da remoto come Senior Business Analyst & Front End Developer."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tua-url.it" />
+    <meta property="og:image" content="img/preview.jpg" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicons/favicon.ico" type="image/x-icon" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="img/favicons/favicon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="img/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="img/favicons/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="img/favicons/site.webmanifest" />
+    <meta name="theme-color" content="#b7a98b" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <div id="toast" class="toast-hidden"></div>
+    <header class="l-header">
+      <input type="checkbox" id="menu-toggle" class="u-hidden" />
+      <label for="menu-toggle" class="c-burger" aria-label="Apri menu">
+        <span></span><span></span><span></span>
+      </label>
+
+      <nav class="c-nav container">
+        <ul class="c-nav__list">
+          <li><a href="index.html" class="c-nav__link">Home</a></li>
+          <li><a href="portfolio.html" class="c-nav__link">Portfolio</a></li>
+          <li><a href="cv.html" class="c-nav__link">CV</a></li>
+          <li>
+            <a href="contatti.html" class="c-nav__link is-active">Contatti</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="contatti__wrap">
+        <!-- Colonna sinistra: Info / Social / Remoto -->
+        <div class="contatti__info">
+          <div class="contatti__box">
+            <i class="bi bi-house-door"></i>
+            <b>Lavoro da remoto</b>
+            <span class="contatti__box-desc">Per aziende e team digitali</span>
+          </div>
+          <a
+            href="https://github.com/AgataDiCalogero"
+            target="_blank"
+            rel="noopener"
+            class="contatti__box contatti__box--link"
+          >
+            <i class="bi bi-github"></i>
+            <b>GitHub</b>
+            <span class="contatti__box-desc"
+              >Progetti & codice open source</span
+            >
+          </a>
+          <a
+            href="https://www.linkedin.com/in/agata-di-calogero/"
+            target="_blank"
+            rel="noopener"
+            class="contatti__box contatti__box--link"
+          >
+            <i class="bi bi-linkedin"></i>
+            <b>LinkedIn</b>
+            <span class="contatti__box-desc"
+              >Referenze e network professionale</span
+            >
+          </a>
+        </div>
+
+        <!-- Colonna destra: Form -->
+        <div class="contatti__form-block">
+          <div class="contatti__header">
+            <h1 class="contatti__title">Contattami</h1>
+            <div class="contatti__subtitle">
+              Cerchi una collaborazione o vuoi propormi un progetto?<br />
+              Scrivimi: ti risponderò entro 24 ore.
+            </div>
+          </div>
+
+          <form id="contact-form" class="contatti__form">
+            <div class="form-group">
+              <label for="name">Nome *</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                placeholder="Il tuo nome"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="La tua email"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Messaggio *</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="8"
+                required
+                placeholder="Raccontami il tuo progetto, le tue idee o come possiamo collaborare..."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="c-button">Invia messaggio</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="l-footer text-center py-4">
+      <p class="footer__text mb-0">
+        © Agata Di Calogero — Tutti i diritti riservati
+      </p>
+    </footer>
+    <!-- EmailJS Configurazione-->
+    <script>
+      const PUBLIC_KEY = "T-vkr1malyibWG60h";
+      const SERVICE_ID = "service_oaab5ht";
+      const TEMPLATE_ID = "template_av0xzep";
+
+      emailjs.init(PUBLIC_KEY);
+
+      // Toast function 
+      function showToast(title, message, isError = false) {
+        const toast = document.getElementById("toast");
+
+        if (!toast) {
+          console.error("Toast element not found");
+          return;
+        }
+        const icon = isError ? "✕" : "✓";
+
+        toast.innerHTML = `
+      <button class="toast__close" onclick="closeToast()" aria-label="Chiudi">&times;</button>
+      <div class="toast__icon">${icon}</div>
+      <div class="toast__title">${title}</div>
+      <div class="toast__message">${message}</div>
+    `;
+
+        // Mostra toast
+        toast.className = "toast-show" + (isError ? " toast-error" : "");
+
+        // Auto-nascondi dopo 4 secondi
+        const autoHideTimeout = setTimeout(() => {
+          closeToast();
+        }, 4000);
+
+        toast.autoHideTimeout = autoHideTimeout;
+      }
+
+      // Funzione per chiudere il toast
+      function closeToast() {
+        const toast = document.getElementById("toast");
+
+        if (!toast) return;
+
+        // Cancella l'auto-hide se attivo
+        if (toast.autoHideTimeout) {
+          clearTimeout(toast.autoHideTimeout);
+        }
+
+        toast.className = "toast-hidden";
+      }
+
+      // Gestione invio form
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("contact-form");
+
+        if (!form) {
+          console.error("Form not found");
+          return;
+        }
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const submitButton = this.querySelector('button[type="submit"]');
+          if (!submitButton) return;
+
+          const originalText = submitButton.textContent;
+
+          submitButton.textContent = "Invio in corso...";
+          submitButton.disabled = true;
+
+          emailjs
+            .sendForm(SERVICE_ID, TEMPLATE_ID, this)
+            .then(function () {
+              showToast("Messaggio inviato!", "Ti risponderò entro 24 ore.");
+              form.reset();
+            })
+            .catch(function (error) {
+              console.error("Errore EmailJS:", error);
+              showToast(
+                "Errore nell'invio",
+                "Riprova tra qualche minuto.",
+                true
+              );
+            })
+            .finally(function () {
+              submitButton.textContent = originalText;
+              submitButton.disabled = false;
+            });
+        });
+      });
+
+      // Chiudi toast con ESC
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          closeToast();
+        }
+      });
+    </script>
+  </body>
+</html>
